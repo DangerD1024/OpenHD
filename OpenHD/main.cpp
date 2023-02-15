@@ -316,6 +316,7 @@ int main(int argc, char *argv[]) {
             std::this_thread::sleep_for(std::chrono::seconds(1));
             cameras=DCameras::discover(*platform);
           }
+          cameras.emplace_back(createCustomIpCamera());
         }
         if(cameras.empty()){
           m_console->warn("No camera found after X seconds, using dummy camera instead");
