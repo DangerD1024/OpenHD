@@ -92,9 +92,9 @@ OHDInterface::OHDInterface(OHDPlatform platform1,OHDProfile profile1,std::shared
     // The USB tethering listener is always enabled
     m_usb_tether_listener =std::make_unique<USBTetherListener>(m_external_devices_manager);
     // dirty, and therefore r.n only enabled on rpi as ground.
-    if(m_platform.platform_type==PlatformType::RaspberryPi){
-      m_ethernet_hotspot = std::make_unique<EthernetHotspot>(m_external_devices_manager,"eth0");
-    }
+  }
+  if(m_platform.platform_type==PlatformType::RaspberryPi){
+    m_ethernet_hotspot = std::make_unique<EthernetHotspot>(m_external_devices_manager,"eth0");
   }
   // This way one could try and recover an air pi
   if(opt_hotspot_card.has_value()){
